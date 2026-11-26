@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "7c3f1a2e-5b8d-4e6a-9f10-isc305unidad3",
+    "name": "III-UNIDAD-ISC305",
+    "description": "Colección de la API de Personas (Laravel). Los datos son ficticios y no requiere autenticación.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "persona_id",
+      "value": "1",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET /hola",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/hola",
+          "host": ["{{base_url}}"],
+          "path": ["hola"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /personas",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/personas",
+          "host": ["{{base_url}}"],
+          "path": ["personas"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /personas/{id}",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/personas/{{persona_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["personas", "{{persona_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /personas (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" },
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dni\": \"0000000000001\",\n  \"nombre\": \"Ana López\",\n  \"fecha_nacimiento\": \"2000-05-15\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/personas",
+          "host": ["{{base_url}}"],
+          "path": ["personas"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST /personas (422 validación)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" },
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dni\": \"123\",\n  \"nombre\": \"\",\n  \"fecha_nacimiento\": \"2999-01-01\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/personas",
+          "host": ["{{base_url}}"],
+          "path": ["personas"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /personas/{id}",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" },
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dni\": \"0000000000001\",\n  \"nombre\": \"Ana María López\",\n  \"fecha_nacimiento\": \"2000-05-15\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/personas/{{persona_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["personas", "{{persona_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE /personas/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Accept", "value": "application/json", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/personas/{{persona_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["personas", "{{persona_id}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
